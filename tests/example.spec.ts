@@ -48,8 +48,7 @@ test("oslash snippet automation", async ({ page }) => {
   await page.locator("#oslash-snippet-editor-content").type(" - it will only take to clicks and will be invaluable to us.\n\n");
   await page.locator("#oslash-snippet-editor-content").type("Regards,\n{Company Name}\n{Email}");
   await page.getByRole("button", { name: "Save" }).click();
-  await page.waitForTimeout(3000);
-  await expect(page.getByText("Snippet Successfully Updated.  ")).toBeVisible();
+  await expect(page.getByText("Snippet Successfully Created.")).toBeVisible();
 });
 
 
@@ -80,7 +79,7 @@ test("oslash new snippet edit", async ({ page }) => {
   await page.locator("#oslash-snippet-editor-content").type("Regards,\n{Company Name}\n{Email}");
   await page.waitForTimeout(1500);
   await page.getByRole("button", { name: "Save" }).click();
-  await page.waitForTimeout(3000);
+  await page.waitForTimeout(2000);
   await expect(page.getByText("Snippet Successfully Updated.")).toBeVisible();
 });
 test("create new folder", async ({ page }) => {
@@ -103,6 +102,6 @@ test("create new folder", async ({ page }) => {
   await page.keyboard.press("Enter");
   await page.getByText("Email", { exact: true }).click();
   await page.getByRole("button", { name: "Save", exact: true }).click();
-  await page.waitForTimeout(3000);
+  await page.waitForTimeout(2000);
   await expect(page.getByText("Snippet Successfully Created.")).toBeVisible();
 })
