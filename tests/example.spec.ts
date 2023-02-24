@@ -88,7 +88,7 @@ test("create new folder", async ({ page }) => {
   await page.getByPlaceholder("prefix").fill("New folder");
   await page.getByPlaceholder("Folder name").fill("New folder");
   await page.getByRole("button", { name: "save" }).click();
-  await page.waitForTimeout(3000);
+  await page.waitForTimeout(2000);
   await expect(page.getByText("Folder Successfully Created.")).toBeVisible();
   await page.waitForTimeout(6000);
   await page.getByRole("button", { name: `o/new-folder` }).click();
